@@ -32,6 +32,7 @@ class Conversacion(object):
         print("Gaspar:")
         print("Hola mi nombre es Gaspar")
         print("------------------------")
+        print("Usuario Habla: ")
 
 
         while True:
@@ -88,3 +89,7 @@ class Conversacion(object):
                 os.system("rm tempSTT/tempSTT.txt")
 
                 os.system("rm tmp.wav")
+
+                if oraciones == "salir":
+
+                    break

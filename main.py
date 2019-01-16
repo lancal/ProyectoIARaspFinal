@@ -26,7 +26,7 @@ class Gaspar(object):
         conversation = Conversacion()
         conversation.handleForever()
 
-def main(self):
+def main():
 
     global resUsuario
     cerrar = True
@@ -40,7 +40,7 @@ def main(self):
         print("------------------------")
         interaccionBot(resUsuario)
 
-        if resUsuario == "chao":
+        if resUsuario == "salir":
             cerrar = False
 
 
@@ -89,20 +89,29 @@ def interaccionBot(respUsuario):
 
         pass
 
-    if resUsuario == "chao":
+    if respUsuario == "salir":
 
         hb = HablarBot()
-        hb.hablarBot("Chao\n")
+        gaspar()
+        print("Hasta la proxima :) ")
+        hb.hablarBot("hasta la proxima")
 
-        print("\nChao :( \n")
+        print("\nTerminando conversacion :( ")
+        print("------------------------")
+
+    else:
+
+        print("------------------------")
+        print("Usuario Habla: ")
+
+
 
     if resUsuario == "1":
 
         sb = EscucharBot()
         sb.hablarBot()
 
-    print("------------------------")
-    print("Usuario Habla: ")
+
 
 
 if __name__ == "__main__":
