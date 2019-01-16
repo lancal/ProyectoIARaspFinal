@@ -14,7 +14,6 @@ class EscucharBot(object):
         os.system("gcc -o test test.c -DMODELDIR=\"`pkg-config --variable=/home/pi/ProyectoIA/sphinx/ pocketsphinx`\" `pkg-config --cflags --libs pocketsphinx sphinxbase`")
         #os.system("./test")
 
-
         proc1 = Popen(args=['./test'],stdout=PIPE, stderr=PIPE)
 
         print("Tu dijiste: ")
