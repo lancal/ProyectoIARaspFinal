@@ -10,6 +10,8 @@ from main import interaccionBot
 
 from os import devnull
 
+import re
+
 
 class Conversacion(object):
 
@@ -55,6 +57,17 @@ class Conversacion(object):
 
                     a = False
 
+            if keyboard.is_pressed("e"):
+
+                print("Ahora puedes Escribir algo a Gaspar")
+
+                usuario = input("Escribe algo a Gaspar :) \n")
+
+                interaccionBot(usuario)
+
+                if usuario == "salir":
+
+                    break
 
             if keyboard.is_pressed("h") is not True and a == False:
 
@@ -90,6 +103,13 @@ class Conversacion(object):
 
                 os.system("rm tmp.wav")
 
-                if oraciones == "salir":
+                patron = re.compile(r'(salir)', re.I)
+                m_match = patron.match(oraciones)
 
-                    break
+                if m_match:
+
+                    m_match = str((m_match.group(1)))
+
+                    if isinstance(m_match, str):
+
+                        break

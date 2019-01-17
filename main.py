@@ -8,9 +8,7 @@ from conversacion import *
 import re
 from random import choice
 
-from hablarBot import *
-
-from escucharBot import *
+from varios import *
 
 resUsuario = ""
 
@@ -46,6 +44,11 @@ def main():
 
 def interaccionBot(respUsuario):
 
+    #print(respUsuario)
+    #print("respUsuario")
+
+    varios = Varios()
+
     patron = re.compile(r'hola', re.I)
     arreglo = patron.findall(str(respUsuario))
     #print("Gaspar:")
@@ -68,8 +71,6 @@ def interaccionBot(respUsuario):
             engine.declare(tiempo(tiempos=c))
             engine.run()
 
-
-
     patron = re.compile(r'mi nombre es (.*)', re.I)
     m_match = patron.match(respUsuario)
 
@@ -89,27 +90,44 @@ def interaccionBot(respUsuario):
 
         pass
 
-    if respUsuario == "salir":
+    patron = re.compile(r'(dime la hora|que edad tienes|salir)',re.I)
+    m_match = patron.match(respUsuario)
 
-        hb = HablarBot()
-        gaspar()
-        print("Hasta la proxima :) ")
-        hb.hablarBot("hasta la proxima")
+    global a
 
-        print("\nTerminando conversacion :( ")
-        print("------------------------")
+    if m_match:
 
-    else:
+        m_match= str((m_match.group(1)))
 
-        print("------------------------")
-        print("Usuario Habla: ")
+        if isinstance(m_match,str):
+
+            a = varios.buscarRespuesta(m_match)
 
 
 
-    if resUsuario == "1":
 
-        sb = EscucharBot()
-        sb.hablarBot()
+
+    # if resUsuario == "1":
+    #
+    #     sb = EscucharBot()
+    #     sb.hablarBot()
+    #
+
+# def respuestaDefault(respUsuario):
+#
+#     patron = re.compile(r'.*', re.I)
+#     m_match = patron.match(respUsuario)
+#     # arreglo = patron.findall(str(respUsuario))
+#
+#     if m_match:
+#
+#         hb = HablarBot()
+#         gaspar()
+#         hb.hablarBot("No entiendo lo que dices")
+
+
+
+
 
 
 

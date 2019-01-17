@@ -21,3 +21,5 @@ class EscucharBot(object):
         (out, err) = proc1.communicate()
 
         os.system("rm test")
+
+        os.system("rm TEMP.wav")
