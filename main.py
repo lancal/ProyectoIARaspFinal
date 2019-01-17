@@ -44,8 +44,15 @@ def main():
 
 def interaccionBot(respUsuario):
 
+<<<<<<< HEAD
     #print(respUsuario)
     #print("respUsuario")
+=======
+    global a
+
+    print(respUsuario)
+    print("respUsuario")
+>>>>>>> a514a62bb8fa24fbc50b27f43916c78e23a69f23
 
     varios = Varios()
     hb = HablarBot()
@@ -100,8 +107,11 @@ def interaccionBot(respUsuario):
     patron = re.compile(r'(dime la hora|que edad tienes|salir)',re.I)
     m_match = patron.match(respUsuario)
 
+<<<<<<< HEAD
     global a
 
+=======
+>>>>>>> a514a62bb8fa24fbc50b27f43916c78e23a69f23
     if m_match:
 
         m_match= str((m_match.group(1)))
