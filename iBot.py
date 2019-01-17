@@ -21,6 +21,11 @@ global nombre2
 #
 #         return self.nombre
 
+def gaspar():
+
+    print("------------------------")
+    print("Gaspar Habla: ")
+
 def setNombre(nombre):
 
     global  nombre2
@@ -76,6 +81,7 @@ class respuestasBot(KnowledgeEngine):
     def nombre1(self):
         #print(nombre2)
         hb = HablarBot()
-        print("\nEs un buen nombre " + nombre2 + "\n")
+        gaspar()
+        print("Es un buen nombre " + nombre2)
         hb.hablarBot("Es un buen nombre ",nombre2)
 

@@ -8,9 +8,7 @@ from conversacion import *
 import re
 from random import choice
 
-from hablarBot import *
-
-from escucharBot import *
+from varios import *
 
 resUsuario = ""
 
@@ -26,25 +24,30 @@ class Gaspar(object):
         conversation = Conversacion()
         conversation.handleForever()
 
-    def main(self):
+def main():
 
-        global resUsuario
-        cerrar = True
+    global resUsuario
+    cerrar = True
 
-        print("Gaspar:")
-        print("Hola mi nombre es Gaspar")
+    print("Gaspar:")
+    print("Hola mi nombre es Gaspar")
+    print("------------------------")
+    while cerrar != False:
+        print("Usuario")
+        resUsuario = input()
         print("------------------------")
-        while cerrar != False:
-            print("Usuario")
-            resUsuario = input()
-            print("------------------------")
-            interaccionBot(resUsuario)
+        interaccionBot(resUsuario)
 
-            if resUsuario == "chao":
-                cerrar = False
+        if resUsuario == "salir":
+            cerrar = False
 
 
 def interaccionBot(respUsuario):
+
+    #print(respUsuario)
+    #print("respUsuario")
+
+    varios = Varios()
 
     patron = re.compile(r'hola', re.I)
     arreglo = patron.findall(str(respUsuario))
@@ -68,8 +71,6 @@ def interaccionBot(respUsuario):
             engine.declare(tiempo(tiempos=c))
             engine.run()
 
-
-
     patron = re.compile(r'mi nombre es (.*)', re.I)
     m_match = patron.match(respUsuario)
 
@@ -89,19 +90,46 @@ def interaccionBot(respUsuario):
 
         pass
 
-    if resUsuario == "chao":
+    patron = re.compile(r'(dime la hora|que edad tienes|salir)',re.I)
+    m_match = patron.match(respUsuario)
 
-        hb = HablarBot()
-        hb.hablarBot("Chao\n")
+    global a
 
-        print("\nChao :( \n")
+    if m_match:
 
-    if resUsuario == "1":
+        m_match= str((m_match.group(1)))
 
-        sb = EscucharBot()
-        sb.hablarBot()
+        if isinstance(m_match,str):
 
-    print("------------------------")
+            a = varios.buscarRespuesta(m_match)
+
+
+
+
+
+    # if resUsuario == "1":
+    #
+    #     sb = EscucharBot()
+    #     sb.hablarBot()
+    #
+
+# def respuestaDefault(respUsuario):
+#
+#     patron = re.compile(r'.*', re.I)
+#     m_match = patron.match(respUsuario)
+#     # arreglo = patron.findall(str(respUsuario))
+#
+#     if m_match:
+#
+#         hb = HablarBot()
+#         gaspar()
+#         hb.hablarBot("No entiendo lo que dices")
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -113,6 +141,5 @@ if __name__ == "__main__":
 
 
     app = Gaspar()
-
 
     app.run()

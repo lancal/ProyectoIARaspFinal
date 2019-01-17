@@ -18,9 +18,9 @@ main(int argc, char *argv[])
     FILE * fp;
 
     config = cmd_ln_init(NULL, ps_args(), TRUE,
-		         "-hmm", MODELDIR "/home/pi/ProyectoIA/sphinx/cmusphinx/model_parameters/voxforge_es_sphinx.cd_ptm_4000",
-		         "-lm", MODELDIR "/home/pi/ProyectoIA/sphinx/es.20k/es-20k.lm",
-	    		 "-dict", MODELDIR "/home/pi/ProyectoIA/sphinx/es/es.dict",
+		         "-hmm", MODELDIR "/home/pi/ProyectoIARaspFinal/sphinx/cmusphinx/model_parameters/voxforge_es_sphinx.cd_ptm_4000",
+		         "-lm", MODELDIR "/home/pi/ProyectoIARaspFinal/sphinx/es.20k/es-20k.lm",
+	    		 "-dict", MODELDIR "/home/pi/ProyectoIARaspFinal/sphinx/es/es.dict",
 		         NULL);
     if (config == NULL) {
 	fprintf(stderr, "Failed to create config object, see log for details\n");
@@ -51,7 +51,7 @@ main(int argc, char *argv[])
 
     rv = ps_end_utt(ps);
     hyp = ps_get_hyp(ps, &score);
-    printf("Recognized: %s\n", hyp);
+    //printf("Tu dijiste: %s\n", hyp);
 
     fp = fopen ("tempSTT/tempSTT.txt","w");
 
