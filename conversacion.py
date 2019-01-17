@@ -12,12 +12,10 @@ from os import devnull
 
 import re
 
-<<<<<<< HEAD
-=======
 from termios import tcflush, TCIFLUSH
 
 import sys
->>>>>>> a514a62bb8fa24fbc50b27f43916c78e23a69f23
+
 
 class Conversacion(object):
 
@@ -65,11 +63,8 @@ class Conversacion(object):
 
             if keyboard.is_pressed("e"):
 
-<<<<<<< HEAD
-=======
                 tcflush(sys.stdin,TCIFLUSH)
 
->>>>>>> a514a62bb8fa24fbc50b27f43916c78e23a69f23
                 print("Ahora puedes Escribir algo a Gaspar")
 
                 usuario = input("Escribe algo a Gaspar :) \n")
@@ -100,7 +95,7 @@ class Conversacion(object):
 
                 a = True
 
-                print("Gaspar esta analizando lo que dijiste :) ")
+                print("\nGaspar esta analizando lo que dijiste :) ")
 
                 sb = EscucharBot()
 
@@ -126,8 +121,5 @@ class Conversacion(object):
 
                     if isinstance(m_match, str):
 
-<<<<<<< HEAD
                         break
-=======
-                        break
->>>>>>> a514a62bb8fa24fbc50b27f43916c78e23a69f23
+

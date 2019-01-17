@@ -126,17 +126,6 @@ class respuestasBot(KnowledgeEngine):
             print("Menor de edad!")
             hb.hablarBot("Menor de edad!")
 
-    @Rule(estudio(estudResp="estudio1"))
-    def estudio1(self):
-        if (estudUsuario == "Informatica" and edadUsuario < 19):
-            gaspar()
-            print(nombreUsuario + ", escojiste una muy buena carrera, nobato")
-            hb.hablarBot(str(nombreUsuario) + ", escojiste una muy buena carrera, nobato")
-        if (estudUsuario == "Informatica" and edadUsuario > 25):
-            gaspar()
-            print(nombreUsuario + ", es una carrera dificil, todos tienen su tiempo")
-            hb.hablarBot(str(nombreUsuario) + ", es una carrera dificil, todos tienen su tiempo")
-
     @Rule(defectoPor(defectoResp="pordefecto"))
     def defectopor1(self):
 
@@ -144,48 +133,105 @@ class respuestasBot(KnowledgeEngine):
         print("no entiendo lo que me intentas decir")
         hb.hablarBot("no entiendo lo que me intentas decir")
 
+    @Rule(defectoPor(defectoResp="1"))
+    def defectopor1(self):
+        gaspar()
+        print("no entiendo lo que me intentas decir.")
+        hb.hablarBot("no entiendo lo que me intentas decir")
+
+    @Rule(defectoPor(defectoResp="2"))
+    def defectopor2(self):
+        gaspar()
+        print("Puedes repetirme, fuiste muy rapido.")
+        hb.hablarBot("Puedes repetirme, fuiste muy rapido")
+
+    @Rule(defectoPor(defectoResp="3"))
+    def defectopor1(self):
+        gaspar()
+        print("lo siento, no estaba prestando atención.")
+        hb.hablarBot("lo siento, no estaba prestando atención")
+
     @Rule(origen(origenResp='origen1'))
     def origen1(self):
-        if (edadUsuario < 19 and origenUsuario == "Antofagasta"):
-            gaspar()
-            print("Asi que juegas de local , pero aun tienes mucho que aprender novato")
-            hb.hablarBot("Asi que juegas de local, pero aun tienes mucho que aprender novato")
 
-        if (edadUsuario > 19 and origenUsuario == "Antofagasta"):
+        if (edadUsuario < 19 and origenUsuario == "Antofagasta" or origenUsuario == "antofagasta"):
             gaspar()
-            print("Asi que eres de " + origenUsuario + ", ya debes haber de aprendido unas cosas")
-            hb.hablarBot("Asi que eres de " + str(origenUsuario) + ", ya debes haber de aprendido unas cosas")
+            print(origenUsuario + ", la perla del norte, " + nombreUsuario + " me recomendarias un buen lugar?")
+            hb.hablarBot(origenUsuario + ", la perla del norte, " + nombreUsuario + " me recomendarias un buen lugar?")
+
+        if (edadUsuario > 19 and origenUsuario == "Antofagasta" or origenUsuario == "antofagasta"):
+            gaspar()
+            print(origenUsuario + ", la perla del norte, " + nombreUsuario + " debes conocer de una buena playa, ¿me recomendarias una?")
+            hb.hablarBot(origenUsuario + ", la perla del norte, " + nombreUsuario + " debes conocer de una buena playa, ¿me recomendarias una?")
+
+        if (origenUsuario == "Iquique" or origenUsuario == "iquique"):
+            gaspar()
+            print("Asi que eres de " + origenUsuario + ", Tierra de campeones!, tienes " + str(edadUsuario) + "años, debiste haber vivido un fuerte terremoto")
+            hb.hablarBot("Asi que eres de " + origenUsuario + ", Tierra de campeones!, tienes " + str(edadUsuario) + "años, debiste haber vivido un fuerte terremoto")
+
+        if (origenUsuario == "Calama" or origenUsuario == "calama"):
+            gaspar()
+            print("Tierra de Sol y Cobre!")
+            hb.hablarBot("Tierra de Sol y Cobre!")
+
+        if (origenUsuario == "Coquimbo" or origenUsuario == "coquimbo"):
+            gaspar()
+            print("Puerto de los Piratas!")
+            hb.hablarBot("Puerto de los Piratas!")
+
+        if (origenUsuario == "Concepción" or origenUsuario == "concepción"):
+            gaspar()
+            print("La Perla del Bio-Bio")
+            hb.hablarBot("La Perla del Bio-Bio")
+
+        if (origenUsuario == "Valparaíso" or origenUsuario == "valparaíso"):
+            gaspar()
+            print("La Perla del Pacífico ")
+            hb.hablarBot("La Perla del Pacífico ")
+
+        if (origenUsuario == "Valdivia" or origenUsuario == "valdivia"):
+            gaspar()
+            print("La Perla del Sur")
+            hb.hablarBot("La Perla del Sur")
 
     @Rule(estudio(estudResp="estudio1"))
     def estudio1(self):
+
         if (estudUsuario == "Informatico" and edadUsuario < 19):
             gaspar()
             print(nombreUsuario + " , todo un geek, pero esto recien comienza")
             hb.hablarBot(nombreUsuario + " , todo un geek, pero esto recien comienza")
+
         if (estudUsuario == "Informatico" and edadUsuario > 23):
             gaspar()
             print(nombreUsuario + " , un geek con experiencia")
             hb.hablarBot(nombreUsuario + " , un geek con experiencia")
+
         if (estudUsuario == "Industrial" and edadUsuario < 19):
             gaspar()
             print(nombreUsuario + " , cuidadito con dinamica! esto recien comienza")
             hb.hablarBot(nombreUsuario + " , cuidadito con dinamica! esto recien comienza")
+
         if (estudUsuario == "Industrial" and edadUsuario > 23):
             gaspar()
             print(nombreUsuario + " , ya deberias ser un experto en procesos")
             hb.hablarBot(nombreUsuario + " , ya deberias ser un experto en procesos")
+
         if (estudUsuario == "Geologia" and edadUsuario < 19):
             gaspar()
             print(nombreUsuario + " , eres todo un lamerocas")
             hb.hablarBot(nombreUsuario + " , eres todo un lamerocas")
+
         if (estudUsuario == "Geologia" and edadUsuario > 23):
             gaspar()
             print(nombreUsuario + " , un indiana jones")
             hb.hablarBot(nombreUsuario + " , un indiana jones")
+
         if (estudUsuario == "Fisica" and edadUsuario < 19):
             gaspar()
             print(nombreUsuario + " , estrellado")
             hb.hablarBot(nombreUsuario + " , estrellado")
+
         if (estudUsuario == "Fisica" and edadUsuario > 25):
             gaspar()
             print(nombreUsuario + " , estrellado de edad")
@@ -193,7 +239,7 @@ class respuestasBot(KnowledgeEngine):
 
 
         gaspar()
-        print("¿De donde Eres?")
-        hb.hablarBot("¿De donde Eres?")
+        print("¿De que ciudad vienes?")
+        hb.hablarBot("¿De que ciudad vienes?")
 
 

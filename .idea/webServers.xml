@@ -26,6 +26,14 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
+      <webServer id="4d878ea7-5c0b-41e9-ab24-362bb8fd1d1a" name="y4" url="http://172.16.25.68">
+        <fileTransfer host="172.16.25.68" port="22" rootFolder="/home/pi" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
